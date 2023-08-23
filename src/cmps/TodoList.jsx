@@ -1,6 +1,6 @@
 import { TodoItem } from './TodoItem.jsx'
 
-export function TodoList({ todos, toggleTodo, deleteTodo }) {
+export const TodoList = ({ todos, toggleTodo, deleteTodo }) => {
 
     return (
         <ul className='list'>
@@ -15,3 +15,5 @@ export function TodoList({ todos, toggleTodo, deleteTodo }) {
         </ul>
     )
 }
+
+// export default TodoList
