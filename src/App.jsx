@@ -1,13 +1,18 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './styles.css'
 import { NewTodoForm } from './cmps/NewTodoForm.jsx'
 import { TodoList } from './cmps/TodoList.jsx'
+import { storageService } from './storage.service.js'
 
 
 
 export default function App() {
 
-  const [todos, setTodos] = useState([])
+  const [todos, setTodos] = useState(storageService.loadFromStorage("ITEMS"))
+
+  useEffect(() => {
+    storageService.saveToStorage("ITEMS", todos)
+  }, [todos])
 
   function addTodo(title) {
     setTodos(currentTodos => {
